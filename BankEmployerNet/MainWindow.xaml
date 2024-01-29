@@ -1,0 +1,64 @@
+﻿<Window x:Class="BankEmployerNet.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BankEmployerNet"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid Background="#FF87C7FF">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <TextBox x:Name="Search" Grid.Row="0" Grid.Column="2"  BorderBrush="{x:Null}">
+            <TextBox.Style>
+                <Style TargetType="TextBox" xmlns:sys="clr-namespace:System;assembly=mscorlib">
+                    <Style.Resources>
+                        <VisualBrush x:Key="CueBannerBrush" AlignmentX="Left" AlignmentY="Center" Stretch="None">
+                            <VisualBrush.Visual>
+                                <Label Content="введите id.." Foreground="#FF474747" />
+                            </VisualBrush.Visual>
+                        </VisualBrush>
+                    </Style.Resources>
+                    <Style.Triggers>
+                        <Trigger Property="Text" Value="{x:Static sys:String.Empty}">
+                            <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+                        </Trigger>
+                        <Trigger Property="Text" Value="{x:Null}">
+                            <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+                        </Trigger>
+                        <Trigger Property="IsKeyboardFocused" Value="True">
+                            <Setter Property="Background" Value="White" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBox.Style>
+        </TextBox>
+        <Button x:Name="AcceptSearch" Content="поиск" Grid.Column="3" Grid.Row="0" Background="#FF2D10FF" Margin="5" Click="AcceptSearch_Click" />
+        <Button x:Name="Applications" Content="заявки" Grid.Column="4" Grid.Row="0" Background="#FF2D10FF" Margin="5" Click="Applications_Click" />
+        <Button x:Name="Export" Content="Экспорт" Grid.Column="0" Grid.Row="0" Background="#FF2D10FF" Margin="5" Click="Export_Click" />
+        <TextBlock x:Name="Surname" Text="фамилия..." Grid.Column="0" Grid.Row="1" FontSize="16" TextAlignment="Center"/>
+        <TextBlock x:Name="name" Text="имя..." Grid.Column="1" Grid.Row="1" FontSize="16" TextAlignment="Center"/>
+        <TextBlock x:Name="Thirdname" Text="отчество..." Grid.Column="2" Grid.Row="1" FontSize="16" TextAlignment="Center"/>
+        <TextBlock x:Name="BirthDate" Text="дата рождения..." Grid.Column="3" Grid.Row="1" FontSize="16" TextAlignment="Center"/>
+        <TextBlock x:Name="Passport" Text="паспорт..." Grid.Column="4" Grid.Row="1" FontSize="16" TextAlignment="Center"/>
+        <DataGrid x:Name="BankAccounts" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="5"/>
+        <DataGrid x:Name="Cards" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="5"/>
+        <DataGrid x:Name="Finances" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="5"/>
+        <DataGrid x:Name="Portfolios" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="5"/>
+        <DataGrid x:Name="Credits" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="5"/>
+    </Grid>
+</Window>
